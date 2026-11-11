@@ -8,20 +8,31 @@ class Card extends React.Component {
     this.state = { 
       todos : []
     }
+    
   }
 
-  onAddTodo = (title, date) => {
-    const newTodo = { title, date };
+  onAddTodo = (props) => {
+    const newTodo = { ...props , isCompleted: false , id: +new Date() };
     this.setState((prevState) => ({
       todos: [...prevState.todos, newTodo],
     }));
   }
+
+  onToggleCompleted = (id, event) => {
+
+    this.setState((prevState) => ({
+      todos: prevState.todos.map((todo) =>
+        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      ),
+    }));
+  }
+
   render() {
     return (
-      <div className="main__Card">
+      <div className='flex flex-col items-center w-1/2 h-fit  bg-secondary rounded-2xl shadow-2xl '>
         <Header></Header>
         <InputTodo addTodoProps={this.onAddTodo} />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} onToggleCompleted={this.onToggleCompleted} />
       </div>
     );
   }
