@@ -29,7 +29,7 @@ class InputTodo extends React.Component {
 
   render() {
     return (
-      <div className="w-full ">
+      <div className="w-full mb-8">
         <form onSubmit={this.onSubmit} className="flex flex-col w-full gap-4 px-4" >
         <input
           type="text"
@@ -47,7 +47,7 @@ class InputTodo extends React.Component {
           onClick={(e) => e.target.showPicker()}
           className={`border bg-gray-200 border-black rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent [&::-webkit-calendar-picker-indicator]:opacity-15 [&::-webkit-calendar-picker-indicator]:cursor-pointer hover:[&::-webkit-calendar-picker-indicator]:opacity-100 ${this.state.date ? 'text-black' : 'text-accent'}`}
         />
-        <button className="btn__Submit" type="submit">Add</button>
+        <button className="bg-black text-white py-2 px-4 rounded-xl hover:bg-accent active:scale-95 transition" type="submit">Add</button>
         </form>
       </div>
     );
