@@ -26,13 +26,18 @@ class Card extends React.Component {
       ),
     }));
   }
+  onDelateTodo = (id) => {
+    this.setState((prevState) => ({
+      todos: prevState.todos.filter((todo) => todo.id !== id),
+    }));
+  }
 
   render() {
     return (
-      <div className='flex flex-col items-center w-1/2 h-fit p-4 bg-secondary rounded-2xl shadow-2xl shadow-accent mt-8'>
+      <div className='flex flex-col items-center w-1/2 h-fit p-4 bg-secondary rounded-2xl shadow-2xl shadow-accent mt-8 mb-8'>
         <Header></Header>
         <InputTodo addTodoProps={this.onAddTodo} />
-        <TodoList todos={this.state.todos} onToggleCompleted={this.onToggleCompleted} />
+        <TodoList todos={this.state.todos} onToggleCompleted={this.onToggleCompleted} onDelateTodo={this.onDelateTodo} />
       </div>
     );
   }

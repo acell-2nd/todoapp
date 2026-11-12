@@ -7,7 +7,7 @@ function TodoList(props) {
       <h2 className="font-bold text-3xl text-accent">My Tasks</h2>
       {todos.length === 0 && <p className="text-accent">No tasks available</p>}
       {todos.map((todo, index) => (
-        <TodoItem key={index} title={todo.title} date={todo.date} isCompleted={todo.isCompleted} onToggleCompleted={props.onToggleCompleted} id={todo.id} />
+        <TodoItem key={index} title={todo.title} date={todo.date} isCompleted={todo.isCompleted} onToggleCompleted={props.onToggleCompleted} id={todo.id} onDelateTodo={props.onDelateTodo} />
       ))}
     </div>
   );
